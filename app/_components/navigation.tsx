@@ -30,7 +30,7 @@ export default async function Navigation() {
               className="hover:text-accent-400 transition-colors flex items-center gap-2"
               referrerPolicy="no-referrer"
             >
-              <Image
+              <img
                 src={session.user.image}
                 alt={session.user.name || "User Avatar"}
                 className="w-8 h-8 rounded-full"
