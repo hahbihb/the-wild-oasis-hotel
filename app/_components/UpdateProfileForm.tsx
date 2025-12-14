@@ -5,7 +5,6 @@ import { useFormStatus } from "react-dom";
 import { updateProfile } from "../_lib/actions";
 
 const UpdateProfileForm = ({ guest, children }) => {
-  const [count, setCount] = useState(0);
   const { fullName, email, nationality, nationalID, countryFlag } = guest || {};
 
   return (
@@ -36,13 +35,17 @@ const UpdateProfileForm = ({ guest, children }) => {
       <div className="space-y-2">
         <div className="flex items-center justify-between">
           <label htmlFor="nationality">Where are you from?</label>
-          <Image
-            width={20}
-            height={20}
-            src={countryFlag}
-            alt="Country flag"
-            className="h-5 rounded-sm"
-          />
+          {countryFlag ? (
+            <Image
+              width={20}
+              height={20}
+              src={countryFlag}
+              alt="Country flag"
+              className="h-5 rounded-sm"
+            />
+          ) : (
+            <div>Select Country</div>
+          )}
         </div>
         {children}
       </div>
